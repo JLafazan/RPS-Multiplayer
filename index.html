@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>RPS-Multiplayer</title>
+
+	<!-- Link to Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="main-container" style="width:800px;">
+		<br>
+	<div class="jumbotron">
+		<h1 class="text-center">Rock Paper Scissors</h1>
+	</div>
+
+<div class="container" style="margin-left: 100px width:800px; height:600px">		
+	<div class="row">
+		<div class="text-center" style="margin: 0 170px">
+			<div class="col-lg-4">
+				<input type="text" placeholder="Name" id="name"/>
+				<button id="start" class="btn btn-success" style="margin: 0 10px">START</button>
+				<h4 class="wait"></h4>
+				<h4 class="whosTurn"></h4>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="text-center" style="margin: 0 185px">
+			<div class="col-lg-4">
+			<button id="rock" class="btn btn-info" style="margin: 0 0px">ROCK</button>	
+			<button id="paper" class="btn btn-warning" style="margin: 0 0px">PAPER</button>
+			<button id="scissors" class="btn btn-danger" style="margin: 0 0px">SCISSORS</button>
+			</div>
+			<br>
+			<br>
+		</div>
+	</div>
+
+
+
+	<div class="row">
+		<div class="text-center" style="margin: 0 20px">
+		
+			<div class="col-sm-4" style="width: 200px">
+
+			
+				<div class="panel panel-default">
+					<h4 class="wait1"></h4>
+					<h3 class="choiceP1">SCISSORS</h3>
+					<h5 class="winsP1">Wins:</h5>
+					<h5 class="lossesP1">Losses:</h5>
+				</div>
+			</div>
+			
+			<div class="col-sm-4" style="width: 200px">
+
+			
+				<div class="panel panel-default" style="margin-top: 20px">
+					<h4 class="gameNoo"></h4>
+					<h4 class="winner">Nobody</h4>
+					<h4 class="winner2">Has Won Yet!</h4>
+				</div>
+				<div class="panel panel-default" style="margin-top: 20px">
+					<h5 class="ties">Ties:</h5>
+				</div>
+
+			</div>
+			
+			<div class="col-sm-4" style="width: 200px">
+
+			
+				<div class="panel panel-default">
+					<h4 class="wait2"></h4>
+					<h3 class="choiceP2">SCISSORS</h3>
+					<h5 class="winsP2">Wins:</h5>
+					<h5 class="lossesP2">Losses:</h5>
+				</div>
+			</div>
+
+			</div>
+
+	</div>
+
+
+
+<!-- Most Recent Member Panel -->
+    <div class="col-lg-8">
+      <div class="panel panel-default">
+        	<div class="panel-heading">
+            <h3 class="panel-title">Messages</h3>
+         	</div>
+          	<div class="panel-body" id="messages">
+            <h5 id="messageDisplay">Die you sucking pig!</h5>
+            
+          	</div>
+        
+      </div>
+
+    </div>
+
+
+
+
+
+	<div class="row" class="form-group">
+		<div class="text-center" style="margin: 0 0px">
+			<div class="col-lg-8">
+				<input type="text" class="form-control" placeholder="Message" id="message2"/>
+				<div class="form-group">
+				<button id="message3" class="btn btn-success" style="margin: 0 0px">SEND</button>
+
+				<button id="reset" class="btn btn-danger" style="margin-left: 20px">RESET</button>
+
+				</div>
+			</div>
+		</div>
+	</div>		
+
+
+
+
+
+</div>		
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<style>
+@media screen and (max-width: 880px) {
+  .body,.row, .main-container{
+    width:100%;
+  }
+
+</style>
+
+<!-- jQuery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- LINK TO FIREBASE GOES HERE -->
+  <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+
+<script type="text/javascript" src="assets/javascript/app12.js"></script>
+
+
+</body>
+</html>
