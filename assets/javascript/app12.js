@@ -171,18 +171,18 @@ dataUpdate();
 
 function snapshotIt(){
 
-    database.ref().on("child_added",function(snapshot) {
+    database.ref().on("value",function(snapshot) {
 
 
         console.log(snapshot.val());
-        // console.log(snapshot.val().gameNo);
-        // console.log(snapshot.val().gameTot);
-        // console.log(snapshot.val().whosTurn);
-        // console.log(snapshot.val().wait1);
-        // var x = Number(snapshot.val().gameNo);
-        // var y = Number(snapshot.val().gameTot);
+        console.log(snapshot.val().gameNo);
+        console.log(snapshot.val().gameTot);
+        console.log(snapshot.val().whosTurn);
+        console.log(snapshot.val().wait1);
+        var x = Number(snapshot.val().gameNo);
+        var y = Number(snapshot.val().gameTot);
 
-        // console.log("x="+x);
+        console.log("x="+x);
 
 
 
@@ -236,40 +236,8 @@ snapshotIt();
     $("#messageDisplay").html(message);
       
     });
+//--------------------------------------------------------/
 
-    
-   function playGame() { 
-
-     //Get Players Names
-     $(document).on("click", "#start", function() {
-        $(".choiceP1").empty();
-        $(".choiceP2").empty();
-        $("#message-display").empty();
-
-        
-
-
-    if (player1 === "") {
-        player1 = $("#name").val();
-        $(".wait1").empty();
-        $(".wait1").append(player1);
-
-    
-
-      }
-      
-     else if ((player1 !== "") && (player2 === "")) {
-         player2 = $("#name").val();
-        $(".wait2").empty();
-        $(".wait2").append(player2);
-       }
-      console.log("Player1 =" + player1);
-      console.log("Player2 =" + player2);
-    });  
-        
-
- 
-};
 
 
 //--------------------------------------------------------/
@@ -353,6 +321,47 @@ function scissors(){
 
 
 
+//---------------------------------------------------------/    
+   function playGame() { 
+
+     //Get Players Names
+     $(document).on("click", "#start", function() {
+        $(".choiceP1").empty();
+        $(".choiceP2").empty();
+        $("#message-display").empty();
+
+        
+
+
+    if (player1 === "") {
+        player1 = $("#name").val();
+        $(".wait1").empty();
+        $(".wait1").append(player1);
+
+    
+
+      }
+      
+     else if ((player1 !== "") && (player2 === "")) {
+         player2 = $("#name").val();
+        $(".wait2").empty();
+        $(".wait2").append(player2);
+       }
+      console.log("Player1 =" + player1);
+      console.log("Player2 =" + player2);
+    });  
+        
+
+ 
+};
+
+
+//--------------------------------------------------------/
+
+
+
+
+playGame();
     
 
 
