@@ -47,6 +47,7 @@ connectionsRef.on("value", function(snap) {
   $("#connected-viewers").text(snap.numChildren());
 });
 
+
 //-------------------------------------------------/
 
     // List the players
@@ -85,6 +86,8 @@ connectionsRef.on("value", function(snap) {
 
 function reset() {
 
+    
+
 
     $(".gameNoo").html(gameNo+' out of '+gameTot);
     $(".wait").html("<h4>WAITING FOR YOU!</h4>");
@@ -101,6 +104,8 @@ function reset() {
     $(".winsP2").html("Wins:" + winsP2);
     $(".lossesP2").html("Losses:" + lossesP2);
     $("#messageDisplay").html("<h5>Choose Your Weapon!</h5>");
+
+
 
 };
 //---------------------------------------------------------/
@@ -187,21 +192,21 @@ function snapshotIt(){
 
 
 
-    // $(".gameNoo").html(x +' out of '+ y);
-    // $(".wait").text(snapshot.val().wait);
-    // $(".whosTurn").text(snapshot.val().whosTurn);
-    // $(".wait1").text(snapshot.val().wait1);
-    // $(".wait2").text(snapshot.val().wait2);
-    // $(".choiceP1").text(snapshot.val().choiceP1);
-    // $(".winsP1").text(snapshot.val().winsP1);
-    // $(".lossesP1").text(snapshot.val().lossesP1);
-    // $(".winner").text(snapshot.val().winner);
-    // $(".winner2").text(snapshot.val().winner2);
-    // $(".ties").text(snapshot.val().ties);
-    // $(".choiceP2").text(snapshot.val().choiceP2);
-    // $(".winsP2").text(snapshot.val().winsP2);
-    // $(".lossesP2").html("Losses:" + (snapshot.val().lossesP2));
-    // $("#messageDisplay").html(snapshot.val().messageDisplay);
+    $(".gameNoo").html(x +' out of '+ y);
+    $(".wait").text(snapshot.val().wait);
+    $(".whosTurn").text(snapshot.val().whosTurn);
+    $(".wait1").text(snapshot.val().wait1);
+    $(".wait2").text(snapshot.val().wait2);
+    $(".choiceP1").text(snapshot.val().choiceP1);
+    $(".winsP1").text(snapshot.val().winsP1);
+    $(".lossesP1").text(snapshot.val().lossesP1);
+    $(".winner").text(snapshot.val().winner);
+    $(".winner2").text(snapshot.val().winner2);
+    $(".ties").text(snapshot.val().ties);
+    $(".choiceP2").text(snapshot.val().choiceP2);
+    $(".winsP2").text(snapshot.val().winsP2);
+    $(".lossesP2").html("Losses:" + (snapshot.val().lossesP2));
+    $("#messageDisplay").html(snapshot.val().messageDisplay);
 
 //Handle the errors
 
