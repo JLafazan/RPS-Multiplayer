@@ -53,6 +53,7 @@ connectionsRef.on("value", function(snap) {
     var name = "";
     var gameTot = 10;
     var gameNo = 1;
+    var gameNoo = "";
     var player1 = "";
     var player2 = "";
     var player1Turn = true;
@@ -80,7 +81,32 @@ connectionsRef.on("value", function(snap) {
     var wait2 = "WAITING FOR PLAYER2";
     var messageDisplay = "Die you sucking pig!"
     var message2 = "";
+//---------------------------------------------------------/
 
+function reset() {
+
+
+    $(".gameNoo").html(gameNo+' out of '+gameTot);
+    $(".wait").html("<h4>WAITING FOR YOU!</h4>");
+    $(".whosTurn").html("<h4>ENTER NAME AND HIT START!</h4>");
+    $(".wait1").html("<h4>WAITING FOR PLAYER1</h4>");
+    $(".wait2").html("<h4>WAITING FOR PLAYER2</h4>");
+    $(".choiceP1").html("<h5>RockPaperScissors</h5>");
+    $(".winsP1").html("Wins:" + winsP1);
+    $(".lossesP1").html("Losses:" + lossesP1);
+    $(".winner").html("<h4>NOBODY</h4>");
+    $(".winner2").html("<h4>HasWonYet!</h4>");
+    $(".ties").html("Ties:" + ties);
+    $(".choiceP2").html("<h5>RockPaperScissors</h5>");
+    $(".winsP2").html("Wins:" + winsP2);
+    $(".lossesP2").html("Losses:" + lossesP2);
+    $("#messageDisplay").html("<h5>Choose Your Weapon!</h5>");
+
+};
+//---------------------------------------------------------/
+
+
+reset();
 
 
 //-------------------------------------------------------/
@@ -89,15 +115,15 @@ function dataUpdate(){
 
         database.ref().push({
 
-        GameNo: GameNo,
+        gameNo: gameNo,
 
-        GameNoo: GameNoo,
+        gameNoo: gameNoo,
 
-        GameTot: GameTot,
+        gameTot: gameTot,
 
-        Player1: Player1,
+        player1: player1,
 
-        Player2: Player2,
+        player2: player2,
 
         player1Turn: player1Turn,
 
@@ -115,9 +141,9 @@ function dataUpdate(){
 
         choiceP2: choiceP2,
 
-        winP1: winP1,
+        winsP1: winsP1,
 
-        winP2: winP2,
+        winsP2: winsP2,
 
         lossesP1: lossesP1,
 
@@ -132,31 +158,70 @@ function dataUpdate(){
 
         });
         };
+//--------------------------------------------------------/
+
+dataUpdate();
+
+//---------------------------------------------------------/
+
+
+
+
+//-------------------------------------------------------/
+
+function snapshotIt(){
+
+    database.ref().on("child_added",function(snapshot) {
+
+
+        console.log(snapshot.val());
+        // console.log(snapshot.val().gameNo);
+        // console.log(snapshot.val().gameTot);
+        // console.log(snapshot.val().whosTurn);
+        // console.log(snapshot.val().wait1);
+        // var x = Number(snapshot.val().gameNo);
+        // var y = Number(snapshot.val().gameTot);
+
+        // console.log("x="+x);
+
+
+
+
+    // $(".gameNoo").html(x +' out of '+ y);
+    // $(".wait").text(snapshot.val().wait);
+    // $(".whosTurn").text(snapshot.val().whosTurn);
+    // $(".wait1").text(snapshot.val().wait1);
+    // $(".wait2").text(snapshot.val().wait2);
+    // $(".choiceP1").text(snapshot.val().choiceP1);
+    // $(".winsP1").text(snapshot.val().winsP1);
+    // $(".lossesP1").text(snapshot.val().lossesP1);
+    // $(".winner").text(snapshot.val().winner);
+    // $(".winner2").text(snapshot.val().winner2);
+    // $(".ties").text(snapshot.val().ties);
+    // $(".choiceP2").text(snapshot.val().choiceP2);
+    // $(".winsP2").text(snapshot.val().winsP2);
+    // $(".lossesP2").html("Losses:" + (snapshot.val().lossesP2));
+    // $("#messageDisplay").html(snapshot.val().messageDisplay);
+
+//Handle the errors
+
+    }, function(errorObject) {
+        console.log("Errors handled:"+errorObject.code);
+
+    });
+
+
+}
+
+//------------------------------------------------------/
+
+
+snapshotIt();
 
 
 //------------------------------------------------------/
 
-    function reset() {
-    $(".gameNoo").html(gameNo+' out of '+gameTot);
-    $(".wait").html("<h4>WAITING FOR YOU!</h4>");
-    $(".whosTurn").html("<h4>ENTER NAME AND HIT START!</h4>");
-    $(".wait1").html("<h4>WAITING FOR PLAYER1</h4>");
-    $(".wait2").html("<h4>WAITING FOR PLAYER2</h4>");
-    $(".choiceP1").html("<h5>RockPaperScissors</h5>");
-    $(".winsP1").html("Wins:" + winsP1);
-    $(".lossesP1").append(lossesP1);
-    $(".winner").html("<h4>NOBODY</h4>");
-    $(".winner2").html("<h4>HasWonYet!</h4>");
-    $(".ties").append(ties);
-    $(".choiceP2").html("<h5>RockPaperScissors</h5>");
-    $(".winsP2").html("Wins:" + winsP2);
-    $(".lossesP2").append(lossesP2);
-    $("#messageDisplay").html("<h5>Choose You Weapon!</h5>");
-
-    dataUpdate();
-
-    };
-
+    
 
 
   $(document).on("click","#reset", function(event){
@@ -164,48 +229,131 @@ function dataUpdate(){
       
     });
 
-    
-// Get Players Names
-//      $(document).on("click", "#start", function() {
-//         $(".choiceP1").empty();
-//         $(".choiceP2").empty();
-//         $("#message-display").empty();
 
-//     if (snapshot.val().Player1 === "") {
-//         Player1 = $("#name").val();
-//         $(".wait1").empty();
-//         $(".wait1").append(player1);
-
-
-//       }
+  $("#message3").on("click", function(event){
+    event.preventDefault();
+    var message = $("#message2").val();
+    $("#messageDisplay").html(message);
       
-//      else if ((player1 !== "") && (player2 === "")) {
-//          player2 = $("#name").val();
-//         $(".wait2").empty();
-//         $(".wait2").append(player2);
-//       }
-      console.log("Player1 =" + player1);
-      console.log("Player2 =" +player2);
-     
+    });
+
+    
+   function playGame() { 
+
+     //Get Players Names
+     $(document).on("click", "#start", function() {
+        $(".choiceP1").empty();
+        $(".choiceP2").empty();
+        $("#message-display").empty();
 
         
 
 
+    if (player1 === "") {
+        player1 = $("#name").val();
+        $(".wait1").empty();
+        $(".wait1").append(player1);
+
+    
+
+      }
+      
+     else if ((player1 !== "") && (player2 === "")) {
+         player2 = $("#name").val();
+        $(".wait2").empty();
+        $(".wait2").append(player2);
+       }
+      console.log("Player1 =" + player1);
+      console.log("Player2 =" + player2);
+    });  
+        
+
+ 
+};
+
+
+//--------------------------------------------------------/
+
+$("#rock").on("click", function(event){
+    rock();
+});
+
+$("#paper").on("click", function(event){
+    paper();
+});
+
+$("#scissors").on("click", function(event){
+    scissors();
+
+});
+
+function rock(){
+    
+        if (player1Turn === true) {
+            choiceP1 = "ROCK";  
+            $(".choiceP1").text("ROCK");
+            }
+        else choiceP1 = ""
+            $(".choiceP2").text("");
+
+
+        if (player2Turn === true) {
+            choiceP2 = "ROCK";  
+            $(".choiceP1").text("ROCK");
+            }
+        else choiceP1 = ""
+            $(".choiceP2").text("");
+
+
+}
+
+function paper(){
+
+        if (player1Turn === true) {
+            choiceP1 = "PAPER";  
+            $(".choiceP1").text("PAPER");
+            }
+        else choiceP1 = ""
+            $(".choiceP2").text("");
+
+
+        if (player2Turn === true) {
+            choiceP2 = "PAPER";  
+            $(".choiceP1").text("PAPER");
+            }
+        else choiceP1 = ""
+            $(".choiceP2").text("");
+    
+        
+        
+    
+}
+
+
+function scissors(){
+    
+        if (player1Turn === true) {
+            choiceP1 = "SCISSORS";  
+            $(".choiceP1").text("SCISSORS");
+            }
+        else choiceP1 = ""
+            $(".choiceP2").text("");
+
+
+        if (player2Turn === true) {
+            choiceP2 = "SCISSORS";  
+            $(".choiceP1").text("SCISSORS");
+            }
+        else choiceP1 = ""
+            $(".choiceP2").text("");
+
+        
+    
+}    
 
 
 
-
-
-
-
-
-
-
-    function playGame() {
-
-
-
-    }
+    
 
 
 
