@@ -193,19 +193,19 @@ function snapshotIt(){
 
 
     $(".gameNoo").html(x +' out of '+ y);
-    $(".wait").text(snapshot.val().wait);
-    $(".whosTurn").text(snapshot.val().whosTurn);
-    $(".wait1").text(snapshot.val().wait1);
-    $(".wait2").text(snapshot.val().wait2);
-    $(".choiceP1").text(snapshot.val().choiceP1);
-    $(".winsP1").text(snapshot.val().winsP1);
-    $(".lossesP1").text(snapshot.val().lossesP1);
-    $(".winner").text(snapshot.val().winner);
-    $(".winner2").text(snapshot.val().winner2);
-    $(".ties").text(snapshot.val().ties);
-    $(".choiceP2").text(snapshot.val().choiceP2);
-    $(".winsP2").text(snapshot.val().winsP2);
-    $(".lossesP2").html("Losses:" + (snapshot.val().lossesP2));
+    $(".wait").html(snapshot.val().wait);
+    $(".whosTurn").html(snapshot.val().whosTurn);
+    $(".wait1").html(snapshot.val().wait1);
+    $(".wait2").html(snapshot.val().wait2);
+    $(".choiceP1").html(snapshot.val().choiceP1);
+    $(".winsP1").html("Wins: " + snapshot.val().winsP1);
+    $(".lossesP1").html("Losses: " + snapshot.val().lossesP1);
+    $(".winner").html(snapshot.val().winner);
+    $(".winner2").html(snapshot.val().winner2);
+    $(".ties").html("Ties: "+ snapshot.val().ties);
+    $(".choiceP2").html(snapshot.val().choiceP2);
+    $(".winsP2").html("Wins: " + snapshot.val().winsP2);
+    $(".lossesP2").html("Losses: " + (snapshot.val().lossesP2));
     $("#messageDisplay").html(snapshot.val().messageDisplay);
 
 //Handle the errors
@@ -277,6 +277,7 @@ function rock(){
         else choiceP1 = ""
             $(".choiceP2").text("");
 
+snapshotIt ();
 
 }
 
@@ -297,7 +298,7 @@ function paper(){
         else choiceP1 = ""
             $(".choiceP2").text("");
     
-        
+ snapshotIt ();       
         
     
 }
@@ -320,7 +321,7 @@ function scissors(){
         else choiceP1 = ""
             $(".choiceP2").text("");
 
-        
+snapshotIt ();        
     
 }    
 
@@ -356,7 +357,7 @@ function scissors(){
       console.log("Player2 =" + player2);
     });  
         
-
+snapshotIt ();
  
 };
 
@@ -403,7 +404,7 @@ for (var i = 0; i < (gameTot+1); i--) {
 
 
 }
-
+snapshotIt ();
 
 }
 
