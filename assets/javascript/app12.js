@@ -176,7 +176,7 @@ dataUpdate();
 
 function snapshotIt(){
 
-    database.ref().on("value",function(snapshot) {
+    database.ref().on("child_added",function(snapshot) {
 
 
         console.log(snapshot.val());
