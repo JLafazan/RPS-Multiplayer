@@ -327,7 +327,7 @@ function scissors(){
 
 
 //---------------------------------------------------------/    
-   function playGame() { 
+   function playerName() { 
 
      //Get Players Names
      $(document).on("click", "#start", function() {
@@ -360,19 +360,54 @@ function scissors(){
  
 };
 
+//---------------------------------------------------------/
+
+playerName();
 
 //--------------------------------------------------------/
 
 
 
 
-playGame();
+function playGame() {
+
+for (var i = 0; i < (gameTot+1); i--) {
     
 
+// This logic determines the outcome of the game (win/loss/tie), and increments the appropriate number
+      if ((choiceP1 === "ROCK") || (choiceP1 === "PAPER") || (choiceP1 === "SCISSORS")) {
+
+        if ((choiceP1 === "ROCK") && (choiceP2 === "SCISSORS")) {
+          winsP1++;
+          lossesP2++;
+        } else if ((choiceP1 === "ROCK") && (choiceP2 === "PAPER")) {
+          lossesP1++;
+          winsP2++;
+        } else if ((choiceP1 === "SCISSORS") && (choiceP2 === "ROCK")) {
+          lossesP1++;
+          winsP2++;
+        } else if ((choiceP1 === "SCISSORS") && (choiceP2 === "PAPER")) {
+          winsP1++;
+          lossesP2++;
+        } else if ((choiceP1 === "PAPER") && (choiceP2 === "ROCK")) {
+          winsP1++;
+          lossesP1++;
+        } else if ((choiceP1 === "PAPER") && (choiceP2 === "SCISSORS")) {
+          lossesP1++;
+          winsP2++;
+        } else if (choiceP1 === choiceP2) {
+          ties++;
+        }
+
+     }  
+
+
+}
 
 
 
 
+}
 
 });
 
