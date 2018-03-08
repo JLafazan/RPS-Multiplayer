@@ -44,7 +44,7 @@ connectionsRef.on("value", function(snap) {
 
   // Display the viewer count in the html.
   // The number of online users is the number of children in the connections list.
-  $("#connected-viewers").text(snap.numChildren());
+  // $("#connected-viewers").text(snap.numChildren());
 });
 
 
@@ -176,7 +176,7 @@ dataUpdate();
 
 function snapshotIt(){
 
-    database.ref().on("child_added",function(snapshot) {
+    database.ref().on("child_changed",function(snapshot) {
 
 
         console.log(snapshot.val());
@@ -184,11 +184,11 @@ function snapshotIt(){
         console.log(snapshot.val().gameTot);
         console.log(snapshot.val().whosTurn);
         console.log(snapshot.val().wait1);
-        var x = Number(snapshot.val().gameNo);
-        var y = Number(snapshot.val().gameTot);
+        var x = snapshot.val().gameNo;
+        var y = snapshot.val().gameTot;
 
         console.log("x="+x);
-
+        console.log("y="+y);
 
 
 
