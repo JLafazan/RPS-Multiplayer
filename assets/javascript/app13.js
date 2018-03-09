@@ -84,9 +84,51 @@ connectionsRef.on("value", function(snap) {
     var message2 = "";
 //---------------------------------------------------------/
 
+
+
+
+
+
 function reset() {
 
     
+
+
+
+    var name = "";
+    var gameTot = 10;
+    var gameNo = 1;
+    var gameNoo = "";
+    var player1 = "";
+    var player2 = "";
+    var player1Turn = true;
+    var player2Turn = false;
+
+    // Creates an array that lists out all of the options (Rock, Paper, or Scissors).
+    var choiceP1 = [""];
+    var choiceP2 = [""];
+
+    // Creating variables to hold the number of wins, losses, and ties. They start at 0.
+    var winsP1 = 0;
+    var lossesP1 = 0;
+    var ties = 0;
+    var winsP2 = 0;
+    var lossesP2 = 0;
+    var winner = "NOBODY";
+    var winner2 = "Has Won Yet!"
+
+
+// Additonal variables to be stored and recalled.
+
+    var wait = "WAITING FOR YOU";
+    var whosTurn = "IT'S YOUR TURN";
+    var wait1 = "WAITING FOR PLAYER1";
+    var wait2 = "WAITING FOR PLAYER2";
+    var messageDisplay = "Die you sucking pig!"
+    var message2 = "";
+
+
+
 
 
     $(".gameNoo").html(gameNo+' out of '+gameTot);
@@ -105,13 +147,14 @@ function reset() {
     $(".lossesP2").html("Losses:" + lossesP2);
     $("#messageDisplay").html("<h5>Choose Your Weapon!</h5>");
 
-
+// dataUpdate();
+// playerName();
 
 };
 //---------------------------------------------------------/
 
 
-reset();
+// reset();
 
 
 //-------------------------------------------------------/
@@ -395,7 +438,9 @@ for (var i = 0; i < (gameTot+1); i--) {
         } else if ((choiceP1 === "ROCK") && (choiceP2 === "PAPER")) {
           lossesP1++;
           winsP2++;
-        } else if ((choiceP1 === "SCISSORS") && (choiceP2 === "ROCK")) {
+        } 
+
+        else if ((choiceP1 === "SCISSORS") && (choiceP2 === "ROCK")) {
           lossesP1++;
           winsP2++;
         } else if ((choiceP1 === "SCISSORS") && (choiceP2 === "PAPER")) {
@@ -411,13 +456,13 @@ for (var i = 0; i < (gameTot+1); i--) {
           ties++;
         }
 
-     }  
+   
 
-
-}
 snapshotIt ();
 
-}
+        }
+    }
+};
 
 //------------------------------------------------------------------------/
 
