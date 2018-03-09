@@ -161,7 +161,7 @@ function reset() {
 
 function dataUpdate(){
 
-        database.ref().push({
+        database.ref('players').set({
 
         gameNo: gameNo,
 
@@ -286,7 +286,46 @@ snapshotIt();
     });
 //--------------------------------------------------------/
 
+//---------------------------------------------------------/    
+   function playerName() { 
 
+     //Get Players Names
+     $(document).on("click", "#start", function() {
+        $(".choiceP1").empty();
+        $(".choiceP2").empty();
+        $("#message-display").empty();
+
+        
+
+
+    if (player1 === "") {
+        player1 = $("#name").val();
+        $(".wait1").empty();
+        $(".wait1").append(player1);
+        database.ref().child("players").update({"player1":player1});
+
+    
+
+      }
+      
+     else if ((player1 !== "") && (player2 === "")) {
+         player2 = $("#name").val();
+        $(".wait2").empty();
+        $(".wait2").append(player2);
+       }
+      console.log("Player1 =" + player1);
+      console.log("Player2 =" + player2);
+    });  
+        
+// snapshotIt ();
+ 
+};
+
+//---------------------------------------------------------/
+
+playerName();
+
+//--------------------------------------------------------/
 
 //--------------------------------------------------------/
 
@@ -320,7 +359,7 @@ function rock(){
         else choiceP1 = ""
             $(".choiceP2").text("");
 
-snapshotIt ();
+// snapshotIt ();
 
 }
 
@@ -341,7 +380,7 @@ function paper(){
         else choiceP1 = ""
             $(".choiceP2").text("");
     
- snapshotIt ();       
+ // snapshotIt ();       
         
     
 }
@@ -364,62 +403,15 @@ function scissors(){
         else choiceP1 = ""
             $(".choiceP2").text("");
 
-snapshotIt ();        
+// snapshotIt ();        
     
 }    
 
 
 
-//---------------------------------------------------------/    
-   function playerName() { 
-
-     //Get Players Names
-     $(document).on("click", "#start", function() {
-        $(".choiceP1").empty();
-        $(".choiceP2").empty();
-        $("#message-display").empty();
-
-        
-
-
-    if (player1 === "") {
-        player1 = $("#name").val();
-        $(".wait1").empty();
-        $(".wait1").append(player1);
-
-    
-
-      }
-      
-     else if ((player1 !== "") && (player2 === "")) {
-         player2 = $("#name").val();
-        $(".wait2").empty();
-        $(".wait2").append(player2);
-       }
-      console.log("Player1 =" + player1);
-      console.log("Player2 =" + player2);
-    });  
-        
-snapshotIt ();
- 
-};
-
-//---------------------------------------------------------/
-
-playerName();
-
-//--------------------------------------------------------/
-
-function takeTurns() {
-
-
-
-
-}
-
 //----------------------------------------------------------/
 
-takeTurns();
+// takeTurns();
 
 
 //---------------------------------------------------------/
@@ -458,7 +450,7 @@ for (var i = 0; i < (gameTot+1); i--) {
 
    
 
-snapshotIt ();
+// snapshotIt ();
 
         }
     }
